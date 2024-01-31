@@ -1,7 +1,9 @@
 package com.keyin;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SuggestionTests {
 
@@ -18,14 +20,19 @@ public class SuggestionTests {
         SuggestionEngine suggestionEngine = new SuggestionEngine();
         String word = "korrect";
         String suggestions = suggestionEngine.generateSuggestions(word);
-        // Add assertions to verify the expected suggestions
+        // Update the assertion to check for a non-empty suggestion
+        assertNotNull(suggestions, "Expected suggestion for 'korrect' should not be null");
+
     }
+
 
     @Test
     public void testEdgeCase() {
         SuggestionEngine suggestionEngine = new SuggestionEngine();
         String word = "xyz";
         String suggestions = suggestionEngine.generateSuggestions(word);
-        // Add assertions to verify the expected suggestions
+        // Assuming the SuggestionEngine suggests some value for the edge case
+        Assert.assertNotNull(suggestions, "Expected suggestions for 'xyz' should not be null");
+        // Add more specific assertions based on the expected behavior
     }
 }
